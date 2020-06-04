@@ -51,11 +51,11 @@ button {
 }
 
 .add-btn {
-  background-color: rgb(63, 56, 158);
+  background-color: #00B632;
 }
 
 .add-btn:hover {
-  background: blue;
+  background: #005319;
 }
 
 
