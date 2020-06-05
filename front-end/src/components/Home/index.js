@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
+import List from './list';
+
 
 class Home extends Component {
   componentDidMount() {
@@ -12,6 +14,7 @@ class Home extends Component {
   }
 
   render() {
+    const { list } = this.props;
     return (
       <div className="home">
       <div className="head">
@@ -19,32 +22,26 @@ class Home extends Component {
       </div>
       <h2>Movie List</h2>
         <div className="list">
-          
-        {console.log(this.props.list.data)}
-          {this.props.list.data.filter(obj=>obj.category==='mylist').map((list, index) => {
-            return (
-              <div className ="item" key={index}>
-                <img src={list.img} className="image" />
-                <div>{list.title}</div>
-                <button className="remove-btn" onClick={() => this.handleChange(list.id)}>
-                  Remove
-                </button>
-              </div>
-            );
-          })}
+          {
+            <List 
+              list={list.data.filter(obj=>obj.category==='mylist')}
+              cssName="remove-btn" 
+              handleChange={this.handleChange} 
+              btnText="Remove" 
+            />
+          }
         </div>
 
         <h2>Recommendation</h2>
         <div className="list">
-          {this.props.list.data.filter(obj=>obj.category==='recommendation').map((list, index) => {
-            return (
-              <div className = "item" key={index}>
-                <img src={list.img} className="image" />
-                <div>{list.title}</div>
-                <button className="add-btn" onClick={() => this.handleChange(list.id)}>Add</button>
-              </div>
-            );
-          })}
+          {
+            <List 
+              list={list.data.filter(obj=>obj.category==='recommendation')}
+              cssName="add-btn" 
+              handleChange={this.handleChange} 
+              btnText="Add" 
+            />
+          }
         </div>
       </div>
     );

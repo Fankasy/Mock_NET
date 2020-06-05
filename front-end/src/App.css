@@ -2,12 +2,11 @@
   font-family: Helvetica;
 
 }
-
+/* 
 img {
   box-shadow: 10px 10px 10px rgba(100, 100, 100, 5);
-}
+} */
 .head{
-  background-image: url("https://i0.wp.com/www.cineluxe.com/wp-content/uploads/2017/08/Not-On-Netflix-NEW-2.png?w=716&ssl=1");
   opacity: 0.6;
   height: 300px;
 }
@@ -21,7 +20,9 @@ body{
   overflow: auto;
   padding: 20px;
 }
-
+.list img{
+  box-shadow: 10px 10px 10px rgba(100, 100, 100, 5);
+}
 .item {
   margin-left: 20px; 
   text-align: center;
